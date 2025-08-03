@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emergency Booking | SmartQueue</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-r from-red-50 to-red-100 min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-red-700">SmartQueue - Emergency</h1>
+    <a href="/" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md">Home</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-6">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Emergency Quick Book</h2>
+
+    <form action="/book_emergency" method="POST" class="bg-white p-6 rounded-lg shadow-md max-w-2xl mx-auto space-y-6">
+      <div>
+        <label class="block text-gray-600 mb-2">Patient Name</label>
+        <input type="text" name="name" class="w-full p-3 border border-gray-300 rounded-md" required>
+      </div>
+
+      <div>
+        <label class="block text-gray-600 mb-2">Issue (Short Description)</label>
+        <input type="text" name="issue" class="w-full p-3 border border-gray-300 rounded-md" required>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-md text-lg">Book Now</button>
+      </div>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white p-4 text-center text-sm text-gray-500 shadow-inner">
+    © 2025 SmartQueue Healthcare
+  </footer>
+
+</body>
+</html>

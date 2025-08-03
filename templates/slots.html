@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Choose Your Time Slot | SmartQueue</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-r from-purple-50 to-purple-100 min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-purple-700">SmartQueue - Appointment Slots</h1>
+    <a href="/" class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-md">Home</a>
+  </nav>
+
+  <!-- Slot Selection -->
+  <main class="flex-1 p-6">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Available Slots</h2>
+
+    <form action="/confirm_slot" method="POST">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+        {% for slot in slots %}
+          {% if slot.available %}
+          <label class="block bg-white p-4 rounded-lg shadow-md hover:shadow-lg cursor-pointer">
+            <input type="radio" name="slot" value="{{ slot.time }}" class="hidden" required>
+            <div class="text-center text-lg font-bold text-purple-700">{{ slot.time }}</div>
+          </label>
+          {% else %}
+          <div class="block bg-gray-200 p-4 rounded-lg text-center text-gray-500 cursor-not-allowed">
+            {{ slot.time }} <br> (Booked)
+          </div>
+          {% endif %}
+        {% endfor %}
+
+      </div>
+
+      <div class="mt-8 text-center">
+        <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white font-bold px-6 py-3 rounded-md text-lg">Confirm Slot</button>
+      </div>
+
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white p-4 text-center text-sm text-gray-500 shadow-inner">
+    © 2025 SmartQueue Healthcare
+  </footer>
+
+</body>
+</html>
